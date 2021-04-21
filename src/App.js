@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { useEffect, useState } from 'react'
 const AppStyle = styled.div`
   button {
     background: none;
@@ -141,6 +142,17 @@ const FormAction = styled.div`
 `
 
 function App () {
+  const [labels, setLabels] = useState(null)
+  useEffect(() => {
+    async function fetchLabels() {
+      const response = await fetch('http://localhost:3001/labels');
+      const result = await response.json();
+      setLabels(result)
+      console.log(result)
+    }
+
+    fetchLabels()
+  }, [JSON.stringify(labels)])
   return (
     <AppStyle className="App">
       <HeaderWrap>ISSUES</HeaderWrap>

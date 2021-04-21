@@ -1,5 +1,29 @@
 import styled from 'styled-components'
-
+const AppStyle = styled.div`
+  button {
+    background: none;
+    text-decoration: none;
+    border: none;
+  }
+  
+  .w-2 {
+    width: 20%;
+  }
+  
+  .w-3 {
+    width: 30%;
+  }
+  
+  .w-7 {
+    width: 70%;
+  }
+  
+  .w-8 {
+    width: 80%;
+  }
+  
+  
+`
 const HeaderWrap = styled.header`
   height: 60px;
   display: flex;
@@ -17,6 +41,7 @@ const MainWrap = styled.main`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-size: 16px;
 `
 
 const SubNavWrap = styled.div`
@@ -64,12 +89,34 @@ const RowInfo = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 10px 0;
+  .label-info {
+    width: 100%;
+    display: flex;
+      button {
+        height: 24px;
+        line-height: 24px;
+        background-color: red;
+        padding: 0 10px;
+        border-radius: 30px;
+        border-color: inherit;
+      }
+    
+      span {
+        width: 70%;
+      }
+
+  }
+  
+  .btn-list {
+    display: flex;
+    justify-content: flex-end;
+  }
 `
 
 const RowUpdateWrap = styled.form`
   width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 
   input {
@@ -77,9 +124,25 @@ const RowUpdateWrap = styled.form`
   }
 `
 
+const InputField = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  input{
+    width: 100px;
+    padding: 0 10px;
+    margin-right: 20px;
+  }
+`
+
+const FormAction = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+
 function App () {
   return (
-    <div className="App">
+    <AppStyle className="App">
       <HeaderWrap>ISSUES</HeaderWrap>
       <MainWrap>
         <SubNavWrap>
@@ -96,81 +159,36 @@ function App () {
           <BoxBody>
             <BoxRow>
               <RowInfo>
-                <div>
-                  <button>Bug</button>
-                  <span>Something isn't working</span>
+                <div className="label-info">
+                  <div className="w-3">
+                    <button>Bug</button>
+                  </div>
+                  <div className="w-7">
+                    <span>Something isn't working</span>
+                  </div>
                 </div>
-                <div>
+                <div className="btn-list w-2">
                   <button>Edit</button>
-                  <button>DELETE</button>
+                  <button>Delete</button>
                 </div>
               </RowInfo>
               <RowUpdateWrap>
-                <div>
-                  <input/>
-                  <input/>
-                  <input/>
-                  <input/>
-                </div>
-                <div>
+                <InputField className="w-7">
+                  Label Name : <input type="text" name="name"/>
+                  Description : <input type="text" name="desc"/>
+                  Color : <button name="random">R</button>
+                  <input type="text" defaultValue="#d73a4a" name="color"/>
+                </InputField>
+                <FormAction className="w-3">
                   <button>Cancel</button>
-                  <button>Save Change</button>
-                </div>
-              </RowUpdateWrap>
-            </BoxRow>
-            <BoxRow>
-              <RowInfo>
-                <div>
-                  <button>Bug</button>
-                  <span>Something isn't working</span>
-                </div>
-                <div>
-                  <button>Edit</button>
-                  <button>DELETE</button>
-                </div>
-              </RowInfo>
-              <RowUpdateWrap>
-                <div>
-                  <input/>
-                  <input/>
-                  <input/>
-                  <input/>
-                </div>
-                <div>
-                  <button>Cancel</button>
-                  <button>Save Change</button>
-                </div>
-              </RowUpdateWrap>
-            </BoxRow>
-
-            <BoxRow>
-              <RowInfo>
-                <div>
-                  <button>Bug</button>
-                  <span>Something isn't working</span>
-                </div>
-                <div>
-                  <button>Edit</button>
-                  <button>DELETE</button>
-                </div>
-              </RowInfo>
-              <RowUpdateWrap>
-                <div>
-                  <input/>
-                  <input/>
-                  <input/>
-                  <input/>
-                </div>
-                <div>
-                  <button>Cancel</button>
-                  <button>Save Change</button>
-                </div>
+                  <button type="submit">Save Change</button>
+                </FormAction>
               </RowUpdateWrap>
             </BoxRow>
           </BoxBody>
         </BoxWrap>
       </MainWrap>
-    </div>
+    </AppStyle>
   )
 }
 

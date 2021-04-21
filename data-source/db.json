@@ -1,5 +1,34 @@
 {
-  "issues" : [
-
+  "labels": [
+    {
+      "label": "Bug",
+      "desc": "Something isn't working",
+      "color": "red",
+      "id": 1
+    },
+    {
+      "label": "documentation",
+      "desc": "Improvements or additions to documentation",
+      "color": "blue",
+      "id": 2
+    },
+    {
+      "label": "duplicate",
+      "desc": "This issue or pull request already exists",
+      "color": "gray",
+      "id": 3
+    },
+    {
+      "label": "enhancement",
+      "desc": "New feature or request",
+      "color": "skyblue",
+      "id": 4
+    },
+    {
+      "label": "good first issue",
+      "desc": "Good for newcomers",
+      "color": "purple",
+      "id": 5
+    }
   ]
 }

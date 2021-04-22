@@ -17,6 +17,18 @@
       "desc": "This issue or pull request already exists",
       "color": "#cfd3d7",
       "id": 3
+    },
+    {
+      "id": 4,
+      "labelName": "tex",
+      "desc": "",
+      "color": "#d73a4a"
+    },
+    {
+      "id": 5,
+      "labelName": "test",
+      "desc": "erwerwerwer",
+      "color": "#097A67"
     }
   ]
 }

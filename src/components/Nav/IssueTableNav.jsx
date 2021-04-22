@@ -1,14 +1,14 @@
 import React from 'react';
 import {NavWrap} from "./IssueTable.style";
 
-const IssueTableNav = () => {
+const IssueTableNav = ({onClick}) => {
   return (
     <NavWrap>
       <div>
         <button>Labels</button>
-        <button>Miles</button>
+        <button>Milestones</button>
       </div>
-      <button>New Label</button>
+      <button onClick={onClick}>New Label</button>
     </NavWrap>
   );
 };

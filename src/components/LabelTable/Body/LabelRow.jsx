@@ -1,7 +1,6 @@
-import React from 'react';
 import {BoxRow, LabelName, RowInfo} from "./LabelRow.style";
 
-const LabelRow = ({label: {labelName, desc, color}}) => {
+const LabelRow = ({label: {labelName='', desc ='', color = '#e99695'}}) => {
   return (
     <BoxRow>
       <RowInfo>

@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import {useEffect, useState} from "react";
 import LabelTable from "./components/LabelTable/LabelTable";
 import IssueTableNav from "./components/Nav/IssueTableNav";
+import LabelCreateForm from './components/LabelCreateForm/LabelCreateForm'
+import { BoxWrap } from './components/LabelTable/LabelTable.style'
 
 const HeaderWrap = styled.header`
   height: 60px;
@@ -31,10 +33,17 @@ function App () {
     try {
       const response = await fetch("http://localhost:3001/issues");
       const labelsData = await response.json()
-      setLabels( (labels) =>[...labels, ...labelsData])
+      if (JSON.stringify(labelsData) === JSON.stringify(labels)) return
+      setLabels( () =>[...labelsData])
     } catch (err) {
       console.error(err)
     }
+  }
+
+  const [isShowForm, setIsShowForm] = useState(false)
+  const onClickNewLabelBtn = async () => {
+    setIsShowForm(() => !isShowForm)
+    await getLabelsData()
   }
 
   useEffect( () => {
@@ -45,7 +54,8 @@ function App () {
     <div className="App">
       <HeaderWrap>ISSUES</HeaderWrap>
       <MainWrap>
-        <IssueTableNav/>
+        <IssueTableNav onClick={onClickNewLabelBtn}/>
+        <LabelCreateForm isShowForm={isShowForm} showForm={onClickNewLabelBtn}/>
         <LabelTable labels={labels}/>
       </MainWrap>
     </div>

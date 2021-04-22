@@ -15,31 +15,3 @@ export const BoxBody = styled.ul`
   padding: 0 16px;
   margin: 0;
 `
-
-export const RowUpdateWrap = styled.form`
-  width: 100%;
-  display: flex;
-  align-items: center;
-
-  input {
-    width: 40px;
-  }
-`
-
-export const InputField = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  input {
-    width: 100px;
-    padding: 0 10px;
-    margin-right: 20px;
-  }
-`
-
-export const FormAction = styled.div`
-  display: flex;
-  justify-content: flex-end;
-`
-

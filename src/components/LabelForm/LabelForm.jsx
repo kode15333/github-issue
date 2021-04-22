@@ -73,9 +73,8 @@ const LabelForm = ({
   return (
     <>
       <LabelNameWrap>
-        <LabelName color={labelData.color}
-                   className="labelName">{labelData.labelName ? labelData.labelName : 'Label preview'}</LabelName>
-        <DeleteBtn>{BTN_LABEL.DELETE}</DeleteBtn>
+        <LabelName color={labelData.color}>{labelData.labelName ? labelData.labelName : 'Label preview'}</LabelName>
+        <DeleteBtn id={labelData.id}>{BTN_LABEL.DELETE}</DeleteBtn>
       </LabelNameWrap>
       <LabelFormWrap onSubmit={handleSubmit}>
         <InputField>

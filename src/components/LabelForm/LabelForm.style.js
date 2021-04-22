@@ -6,6 +6,7 @@ export const LabelNameWrap = styled.div`
   padding: 20px;
 `
 export const DeleteBtn = styled.button`
+  display: ${props => props.id ? 'block' : 'none'};
   background: none;
 `
 export const LabelFormWrap = styled.form`

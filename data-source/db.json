@@ -1,9 +1,9 @@
 {
   "issues": [
     {
-      "labelName": "bug111",
+      "labelName": "bug111111111111111",
       "desc": "2222",
-      "color": "#74E1DC",
+      "color": "#8FCAF3",
       "id": 1
     },
     {
@@ -35,6 +35,12 @@
       "desc": "This issue or pull request already exists",
       "color": "#cfd3d7",
       "id": 6
+    },
+    {
+      "labelName": "sdfsdfsdf",
+      "desc": "sdfsdfsdf",
+      "color": "#DB498C",
+      "id": 7
     }
   ]
 }

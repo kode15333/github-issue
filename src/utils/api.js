@@ -7,7 +7,14 @@ export const getLabels = async () => {
   } catch (err) {
     console.error('getLabels Error', err)
   }
+}
 
+export const putLabel = ({ id, labelName, desc, color }) => {
+  return putData(`${SERVER_URL + id}`, {
+    labelName,
+    desc,
+    color
+  })
 
 }
 export const postLabel = ({ labelName, desc, color }) => {
@@ -15,6 +22,16 @@ export const postLabel = ({ labelName, desc, color }) => {
     labelName,
     desc,
     color
+  })
+}
+
+function putData (url = '', data = {}) {
+  return fetch(url, {
+    method: 'PUT',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json',
+    },
   })
 }
 

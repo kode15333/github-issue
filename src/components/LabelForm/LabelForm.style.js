@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 
 export const LabelNameWrap = styled.div`
-  width: 100%;
-  padding: 30px 0 0 16px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+`
+export const DeleteBtn = styled.button`
+  background: none;
 `
 export const LabelFormWrap = styled.form`
   display: flex;

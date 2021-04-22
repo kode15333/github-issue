@@ -4,8 +4,44 @@ import LabelTable from './components/LabelTable/LabelTable'
 import IssueTableNav from './components/Nav/IssueTableNav'
 import LabelCreateForm from './components/LabelCreateForm/LabelCreateForm'
 import { getLabels } from './utils/api'
-import { compareObject } from './utils/util'
 import { LABEL } from './utils/constant'
+
+function App () {
+  const [labels, setLabels] = useState([])
+  const [isShowForm, setIsShowForm] = useState(false)
+
+  const getLabelsData = async () => {
+    try {
+      const labelsData = await getLabels();
+      // if (compareObject(labelsData, labels)) return
+      setLabels( () =>[...labelsData])
+    } catch (err) {
+      console.error(err)
+    }
+  }
+
+  const onClickNewLabelBtn = async () => {
+    await getLabelsData()
+    setIsShowForm(() => !isShowForm)
+  }
+
+  useEffect( () => {
+   getLabelsData()
+  }, [])
+
+  return (
+    <div className="App">
+      <HeaderWrap>{LABEL.TITLE}</HeaderWrap>
+      <MainWrap>
+        <IssueTableNav openCreateForm={onClickNewLabelBtn}/>
+        <LabelCreateForm isShowForm={isShowForm} showForm={onClickNewLabelBtn}/>
+        <LabelTable labels={labels} updateData={getLabelsData}/>
+      </MainWrap>
+    </div>
+  )
+}
+
+export default App
 
 const HeaderWrap = styled.header`
   height: 60px;
@@ -26,41 +62,3 @@ const MainWrap = styled.main`
   flex-direction: column;
   font-size: 16px;
 `
-
-
-function App () {
-  const [labels, setLabels] = useState([])
-  const [isShowForm, setIsShowForm] = useState(false)
-
-  const getLabelsData = async () => {
-    try {
-      const labelsData = await getLabels();
-      if (compareObject(labelsData, labels)) return
-      setLabels( () =>[...labelsData])
-    } catch (err) {
-      console.error(err)
-    }
-  }
-
-  const onClickNewLabelBtn = async () => {
-    await getLabelsData()
-    setIsShowForm(() => !isShowForm)
-  }
-
-  useEffect( () => {
-   getLabelsData()
-  }, [])
-
-  return (
-    <div className="App">
-      <HeaderWrap>{LABEL.TITLE}</HeaderWrap>
-      <MainWrap>
-        <IssueTableNav onClick={onClickNewLabelBtn}/>
-        <LabelCreateForm isShowForm={isShowForm} showForm={onClickNewLabelBtn}/>
-        <LabelTable labels={labels}/>
-      </MainWrap>
-    </div>
-  )
-}
-
-export default App

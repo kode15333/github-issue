@@ -2,12 +2,9 @@ import { LabelCreateFormWrap, } from './LabelCreateForm.style'
 import LabelForm from '../LabelForm/LabelForm'
 
 const LabelCreateForm = ({isShowForm = false, showForm }) => {
-  if (isShowForm === false) {
-    return null;
-  }
 
   return (
-    <LabelCreateFormWrap>
+    <LabelCreateFormWrap  isShowForm={isShowForm}>
       <LabelForm onClose={showForm}/>
     </LabelCreateFormWrap>
   )

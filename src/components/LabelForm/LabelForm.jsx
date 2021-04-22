@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import {
+  DeleteBtn,
   Field,
   FormAction,
   InputField,
@@ -9,14 +10,22 @@ import {
 } from './LabelForm.style'
 import { LabelName } from '../LabelTable/Body/LabelRow.style'
 import { makeRandomColor } from '../../utils/util'
-import { postLabel } from '../../utils/api'
+import { postLabel, putLabel } from '../../utils/api'
 import { BTN_LABEL, FORM_LABEL } from '../../utils/constant'
 
-const LabelForm = ({onClose}) => {
+const LabelForm = ({
+  id = null,
+  labelName = '',
+  desc = '',
+  color = '#35946F',
+  onClose,
+  updateData = null
+}) => {
   const [labelData, setLabelData] = useState({
-    labelName: '',
-    desc: '',
-    color: '#35946F'
+    id,
+    labelName,
+    desc,
+    color
   })
 
   const handleClickMakeColor = (e) => {
@@ -25,15 +34,23 @@ const LabelForm = ({onClose}) => {
     setLabelData(() => ({ ...labelData, color }))
   }
 
-
   const handleChangeLabelData = ({ target: { name, value } }) => {
     setLabelData(() => ({ ...labelData, [name]: value }))
   }
 
+  const handleUpdateLabel = async (id, labelData) => {
+    if (id) {
+      return putLabel(labelData)
+    }
+
+    return postLabel(labelData)
+  }
+
+
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await postLabel(labelData)
+      const response = await handleUpdateLabel(id, labelData)
       if (response.ok) {
         setLabelData(() => ({
           labelName: '',
@@ -41,12 +58,12 @@ const LabelForm = ({onClose}) => {
           color: '#35946F'
         }))
         onClose()
+        updateData();
       }
     } catch (err) {
       console.error(err)
     }
   }
-
 
   const handleCloseModal = (e) => {
     e.preventDefault()
@@ -58,6 +75,7 @@ const LabelForm = ({onClose}) => {
       <LabelNameWrap>
         <LabelName color={labelData.color}
                    className="labelName">{labelData.labelName ? labelData.labelName : 'Label preview'}</LabelName>
+        <DeleteBtn>{BTN_LABEL.DELETE}</DeleteBtn>
       </LabelNameWrap>
       <LabelFormWrap onSubmit={handleSubmit}>
         <InputField>
@@ -91,8 +109,10 @@ const LabelForm = ({onClose}) => {
           </Field>
         </InputField>
         <FormAction name={labelData.labelName}>
-          <button className="close" onClick={handleCloseModal}>{BTN_LABEL.CANCEL}</button>
-          <button type="submit" disabled={labelData.labelName.length < 0}>{BTN_LABEL.SAVE}</button>
+          <button className="close"
+                  onClick={handleCloseModal}>{BTN_LABEL.CANCEL}</button>
+          <button type="submit"
+                  disabled={labelData.labelName.length < 0}>{BTN_LABEL.SAVE}</button>
         </FormAction>
       </LabelFormWrap>
     </>

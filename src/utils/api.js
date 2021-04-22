@@ -9,19 +9,32 @@ export const getLabels = async () => {
   }
 }
 
+export const deleteLabel = ({ id }) => {
+  return deleteData(`${SERVER_URL + id}`)
+}
+
+
 export const putLabel = ({ id, labelName, desc, color }) => {
   return putData(`${SERVER_URL + id}`, {
     labelName,
     desc,
     color
   })
-
 }
+
 export const postLabel = ({ labelName, desc, color }) => {
   return postData(SERVER_URL, {
     labelName,
     desc,
     color
+  })
+}
+function deleteData(url) {
+  return fetch(url, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
   })
 }
 

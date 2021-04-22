@@ -24,3 +24,7 @@ export const NAV_TITLE = {
     LABELS: 'Labels',
     MILESTONES: 'Milestones'
 }
+
+export const ALERT_MESSAGE = {
+  DELETE : '정말 이 레이블을 삭제하시겠습니까?'
+}

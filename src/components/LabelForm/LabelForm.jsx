@@ -58,7 +58,7 @@ const LabelForm = ({
           color: '#35946F'
         }))
         onClose()
-        updateData();
+        updateData && updateData();
       }
     } catch (err) {
       console.error(err)

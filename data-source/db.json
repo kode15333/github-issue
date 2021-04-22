@@ -1,15 +1,15 @@
 {
   "issues": [
     {
-      "labelName": "bug111111111111111",
-      "desc": "2222",
-      "color": "#8FCAF3",
+      "labelName": "ㄴㅇㅍㄴㅇㅍㄴㅇㅍ",
+      "desc": "ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
+      "color": "#F8C85F",
       "id": 1
     },
     {
       "labelName": "documentation",
-      "desc": "Improvements or additions to documentation",
-      "color": "#0075ca",
+      "desc": "Improvements or additions to documentation12",
+      "color": "#8BB659",
       "id": 2
     },
     {
@@ -17,12 +17,6 @@
       "desc": "This issue or pull request already exists",
       "color": "#cfd3d7",
       "id": 3
-    },
-    {
-      "labelName": "tex",
-      "desc": "123213213",
-      "color": "#2BD4C8",
-      "id": 4
     },
     {
       "id": 5,
@@ -41,6 +35,12 @@
       "desc": "sdfsdfsdf",
       "color": "#DB498C",
       "id": 7
+    },
+    {
+      "labelName": "3333333",
+      "desc": "",
+      "color": "#35946F",
+      "id": 8
     }
   ]
 }

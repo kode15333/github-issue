@@ -1,14 +1,15 @@
-import React from 'react';
-import {NavWrap} from "./IssueTable.style";
+import React from 'react'
+import { NavWrap } from './IssueTable.style'
+import { BTN_LABEL, NAV_TITLE } from '../../utils/constant'
 
 const IssueTableNav = ({onClick}) => {
   return (
     <NavWrap>
       <div>
-        <button>Labels</button>
-        <button>Milestones</button>
+        <button>{NAV_TITLE.LABELS}</button>
+        <button>{NAV_TITLE.MILESTONES}</button>
       </div>
-      <button onClick={onClick}>New Label</button>
+      <button onClick={onClick}>{BTN_LABEL.NEW}</button>
     </NavWrap>
   );
 };

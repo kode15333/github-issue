@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const BoxRow = styled.li`
   width: 100%;
@@ -36,7 +36,7 @@ export const RowInfo = styled.div`
 export const LabelName = styled.button`
   height: 24px;
   line-height: 24px;
-  background-color: ${props => props.color || "palevioletred"};
+  background-color: ${props => props.color || "#35946F"};
   padding: 0 10px;
   border-radius: 30px;
   border-color: inherit;

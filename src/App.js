@@ -1,9 +1,11 @@
 import styled from 'styled-components'
-import {useEffect, useState} from "react";
-import LabelTable from "./components/LabelTable/LabelTable";
-import IssueTableNav from "./components/Nav/IssueTableNav";
+import { useEffect, useState } from 'react'
+import LabelTable from './components/LabelTable/LabelTable'
+import IssueTableNav from './components/Nav/IssueTableNav'
 import LabelCreateForm from './components/LabelCreateForm/LabelCreateForm'
-import { BoxWrap } from './components/LabelTable/LabelTable.style'
+import { getLabels } from './utils/api'
+import { compareObject } from './utils/util'
+import { LABEL } from './utils/constant'
 
 const HeaderWrap = styled.header`
   height: 60px;
@@ -28,22 +30,21 @@ const MainWrap = styled.main`
 
 function App () {
   const [labels, setLabels] = useState([])
+  const [isShowForm, setIsShowForm] = useState(false)
 
   const getLabelsData = async () => {
     try {
-      const response = await fetch("http://localhost:3001/issues");
-      const labelsData = await response.json()
-      if (JSON.stringify(labelsData) === JSON.stringify(labels)) return
+      const labelsData = await getLabels();
+      if (compareObject(labelsData, labels)) return
       setLabels( () =>[...labelsData])
     } catch (err) {
       console.error(err)
     }
   }
 
-  const [isShowForm, setIsShowForm] = useState(false)
   const onClickNewLabelBtn = async () => {
-    setIsShowForm(() => !isShowForm)
     await getLabelsData()
+    setIsShowForm(() => !isShowForm)
   }
 
   useEffect( () => {
@@ -52,7 +53,7 @@ function App () {
 
   return (
     <div className="App">
-      <HeaderWrap>ISSUES</HeaderWrap>
+      <HeaderWrap>{LABEL.TITLE}</HeaderWrap>
       <MainWrap>
         <IssueTableNav onClick={onClickNewLabelBtn}/>
         <LabelCreateForm isShowForm={isShowForm} showForm={onClickNewLabelBtn}/>

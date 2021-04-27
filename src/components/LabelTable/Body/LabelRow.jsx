@@ -46,7 +46,7 @@ const LabelRow = ({ label, updateData }) => {
         </div>
       </RowInfo>
       <LabelUpdateFormWrap isShowForm={isShowUpdateForm}>
-        <LabelForm id={id} labelName={labelName} desc={desc} color={color}
+        <LabelForm {...{id, labelName, desc, color}}
                    onClose={handleCloseBtn} updateData={updateData}
                    onDelete={handleDeleteBtn}/>
       </LabelUpdateFormWrap>

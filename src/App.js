@@ -8,6 +8,7 @@ import Label from '@components/Label/Label'
 import Milestones from '@components/Milestones/Milestones'
 
 function App () {
+  const [navTitle, setNavTitle] = useState(false)
   const [labels, setLabels] = useState([])
   const [isShowForm, setIsShowForm] = useState(false)
 
@@ -20,7 +21,9 @@ function App () {
       console.error(err)
     }
   }
-
+  const onClickNav = () => {
+    setNavTitle(() => !navTitle)
+  }
   const onClickNewLabelBtn = async () => {
     await getLabelsData()
     setIsShowForm(() => !isShowForm)
@@ -30,14 +33,15 @@ function App () {
     getLabelsData()
   }, [])
 
+  const Content = navTitle ?  <Milestones/> : <Label isShowForm={isShowForm} showForm={onClickNewLabelBtn}
+                                                      labels={labels} updateData={getLabelsData}/>
+
   return (
     <div>
       <HeaderWrap>{LABEL.TITLE}</HeaderWrap>
       <MainWrap>
-        <IssueTableNav openCreateForm={onClickNewLabelBtn}/>
-        <Label isShowForm={isShowForm} showForm={onClickNewLabelBtn}
-               labels={labels} updateData={getLabelsData}/>
-        <Milestones/>
+        <IssueTableNav openCreateForm={onClickNewLabelBtn} onClick={onClickNav}/>
+        {Content}
       </MainWrap>
     </div>
   )

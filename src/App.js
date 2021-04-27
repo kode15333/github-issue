@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
-import LabelTable from '@components/LabelTable/LabelTable'
 import IssueTableNav from '@components/Nav/IssueTableNav'
-import LabelCreateForm from '@root/components/LabelCreateForm/LabelCreateForm'
 import { getLabels } from '@utils/api'
 import { LABEL } from '@utils/constant'
 import { compareObject } from '@utils/util'
 import { HeaderWrap, MainWrap } from './App.style'
+import Label from '@components/Label/Label'
+import Milestones from '@components/Milestones/Milestones'
 
 function App () {
   const [labels, setLabels] = useState([])
@@ -13,9 +13,9 @@ function App () {
 
   const getLabelsData = async () => {
     try {
-      const labelsData = await getLabels();
+      const labelsData = await getLabels()
       if (compareObject(labelsData, labels)) return
-      setLabels( () =>[...labelsData])
+      setLabels(() => [...labelsData])
     } catch (err) {
       console.error(err)
     }
@@ -26,8 +26,8 @@ function App () {
     setIsShowForm(() => !isShowForm)
   }
 
-  useEffect( () => {
-   getLabelsData()
+  useEffect(() => {
+    getLabelsData()
   }, [])
 
   return (
@@ -35,8 +35,9 @@ function App () {
       <HeaderWrap>{LABEL.TITLE}</HeaderWrap>
       <MainWrap>
         <IssueTableNav openCreateForm={onClickNewLabelBtn}/>
-        <LabelCreateForm isShowForm={isShowForm} showForm={onClickNewLabelBtn}/>
-        <LabelTable labels={labels} updateData={getLabelsData}/>
+        <Label isShowForm={isShowForm} showForm={onClickNewLabelBtn}
+               labels={labels} updateData={getLabelsData}/>
+        <Milestones/>
       </MainWrap>
     </div>
   )

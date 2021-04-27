@@ -9,9 +9,9 @@ import {
   RanDomBtn
 } from './LabelForm.style'
 import { LabelName } from '../LabelTable/Body/LabelRow.style'
-import { makeRandomColor } from '../../utils/util'
-import { postLabel, putLabel } from '../../utils/api'
-import { BTN_LABEL, FORM_LABEL } from '../../utils/constant'
+import { makeRandomColor } from '../../../utils/util'
+import { postLabel, putLabel } from '../../../utils/api'
+import { BTN_LABEL, FORM_LABEL } from '../../../utils/constant'
 
 const LabelForm = ({
   id = null,

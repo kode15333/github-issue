@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavWrap } from './IssueTable.style'
-import { BTN_LABEL, NAV_TITLE } from '../../utils/constant'
+import { BTN_LABEL, NAV_TITLE } from '@utils/constant'
 
 const IssueTableNav = ({openCreateForm}) => {
   return (

@@ -1,12 +1,6 @@
 {
   "issues": [
     {
-      "labelName": "ㄴㅇㅍㄴㅇㅍㄴㅇㅍ",
-      "desc": "ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ",
-      "color": "#F8C85F",
-      "id": 1
-    },
-    {
       "labelName": "documentation",
       "desc": "Improvements or additions to documentation12",
       "color": "#8BB659",
@@ -41,6 +35,24 @@
       "desc": "",
       "color": "#35946F",
       "id": 8
+    },
+    {
+      "labelName": "12212",
+      "desc": "",
+      "color": "#23090B",
+      "id": 9
+    },
+    {
+      "labelName": "232",
+      "desc": "32323",
+      "color": "#1DF029",
+      "id": 10
+    },
+    {
+      "labelName": "1212",
+      "desc": "12122",
+      "color": "#88400B",
+      "id": 11
     }
   ]
 }

@@ -10,7 +10,8 @@ export const BTN_LABEL = {
   RANDOM: 'R',
   CANCEL: 'Cancel',
   SAVE: 'Save Change',
-  NEW: 'New Label',
+  NEW_LABEL: 'New Label',
+  NEW_MILESTONE: 'New MILESTONE',
   EDIT: 'Edit',
   DELETE: 'Delete'
 }

@@ -3,7 +3,7 @@
     {
       "labelName": "documentation1",
       "desc": "Improvements or additions to documentation12",
-      "color": "#B62957",
+      "color": "#83965A",
       "id": 2
     },
     {
@@ -19,16 +19,16 @@
       "id": 6
     },
     {
-      "labelName": "11",
-      "desc": "22",
-      "color": "#35946F",
-      "id": 7
-    },
-    {
       "labelName": "3333",
       "desc": "2222",
       "color": "#B9DC98",
       "id": 8
+    },
+    {
+      "labelName": "234",
+      "desc": "234",
+      "color": "#35946F",
+      "id": 9
     }
   ],
   "milestones": [
@@ -47,22 +47,22 @@
       "id": 28
     },
     {
-      "title": "666666666",
+      "title": "77777777777",
       "date": "",
-      "desc": "6666666666666",
-      "status": "open",
+      "desc": "7777777777777777",
+      "status": "close",
       "id": 29
     },
     {
       "title": "66666666666",
       "date": "",
       "desc": "666666666666666",
-      "status": "open",
+      "status": "close",
       "id": 30
     },
     {
       "title": "666666666666666666",
-      "date": "",
+      "date": "2021-04-16",
       "desc": "66666666666666666",
       "status": "open",
       "id": 31
@@ -94,6 +94,13 @@
       "desc": "77777777777777",
       "status": "open",
       "id": 35
+    },
+    {
+      "title": "wer",
+      "date": "",
+      "desc": "werwer",
+      "status": "open",
+      "id": 36
     }
   ]
 }

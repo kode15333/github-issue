@@ -6,6 +6,7 @@ import {
   FormLabel
 } from './MilestoneForm.style'
 import { MilestonesContext } from '../Milestones'
+import { BTN_LABEL } from '@utils/constant'
 
 const MilestoneForm = ( {
   id = null,
@@ -95,9 +96,9 @@ const MilestoneForm = ( {
           />
         </FormLabel>
         <FormBtn id={id} title={milestoneData.title}>
-          <button name="cancel" onClick={handleCancel}>Cancel</button>
-          <button name="close" onClick={handleClose}>Close milestone</button>
-          <button type="submit">{id ?'Save milestone' : 'Create milestone'} </button>
+          <button name="cancel" onClick={handleCancel}>{BTN_LABEL.CANCEL}</button>
+          <button name="close" onClick={handleClose}>{BTN_LABEL.CLOSE_MILESTONE}</button>
+          <button type="submit">{id ?  BTN_LABEL.SAVE_MILESTONE: BTN_LABEL.CREATE_MILESTONE} </button>
         </FormBtn>
       </CreateForm>
     </>

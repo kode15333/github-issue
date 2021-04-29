@@ -14,9 +14,13 @@ export const BTN_LABEL = {
   CANCEL: 'Cancel',
   SAVE: 'Save Change',
   NEW_LABEL: 'New Label',
-  NEW_MILESTONE: 'New MILESTONE',
+  NEW_MILESTONE: 'New Milestone',
+  CLOSE_MILESTONE: 'Close Milestone',
+  SAVE_MILESTONE: 'Save Milestone',
+  CREATE_MILESTONE: 'Create Milestone',
   EDIT: 'Edit',
-  DELETE: 'Delete'
+  DELETE: 'Delete',
+  CLOSE: 'Close'
 }
 
 export const LABEL = {

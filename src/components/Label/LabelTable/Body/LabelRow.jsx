@@ -1,8 +1,13 @@
-import {BoxRow, LabelName, LabelUpdateFormWrap, RowInfo} from './LabelRow.style'
-import {ALERT_MESSAGE, BTN_LABEL} from '../../../../utils/constant'
+import {
+  BoxRow,
+  LabelName,
+  LabelUpdateFormWrap,
+  RowInfo
+} from './LabelRow.style'
+import { ALERT_MESSAGE, BTN_LABEL } from '@utils/constant'
 import LabelForm from '../../LabelForm/LabelForm'
-import {useState} from 'react'
-import {LabelAPI} from '../../../../utils/api'
+import { useState } from 'react'
+import { LabelAPI } from '@utils/api'
 
 const LabelRow = ({label, updateData}) => {
   const {id = null, labelName = '', desc = '', color = '#e99695'} = label

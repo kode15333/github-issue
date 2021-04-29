@@ -1,5 +1,6 @@
 import React from 'react'
 import { MileStone, MilestoneAction, MileStoneInfo } from './MilestoneRow.style'
+import { BTN_LABEL } from '@utils/constant'
 
 const MilestoneRow = ({
   id,
@@ -39,9 +40,9 @@ const MilestoneRow = ({
           <span>0 closed</span>
         </div>
         <MilestoneAction>
-          <button onClick={handleClickEdit}>Edit</button>
-          <button onClick={handleCLClickClose}>Close</button>
-          <button onClick={handleClickDelete}>Delete</button>
+          <button onClick={handleClickEdit}>{BTN_LABEL.EDIT}</button>
+          <button onClick={handleCLClickClose}>{BTN_LABEL.CLOSE}</button>
+          <button onClick={handleClickDelete}>{BTN_LABEL.DELETE}</button>
         </MilestoneAction>
       </MileStoneInfo>
     </MileStone>

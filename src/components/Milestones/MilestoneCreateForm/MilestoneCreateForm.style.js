@@ -1,7 +1,8 @@
-import styled from "styled-components";
-import {Field, FormAction} from "../../Label/LabelForm/LabelForm.style";
+import styled, { css } from 'styled-components'
+import { Field, FormAction } from '../../Label/LabelForm/LabelForm.style'
 
 export const CreateFormHeader = styled.div`
+  display: ${({ id }) => id ? 'none' : 'display'};
   height: 74px;
   border-bottom: 1px solid rgb(225, 228, 232);
 
@@ -10,7 +11,15 @@ export const CreateFormHeader = styled.div`
   }
 `
 
-export const CreateFormWrap = styled.form`
+export const CreateFormWrap = styled.div`
+  display: ${({ isShowForm }) => isShowForm ? 'block' : 'none'};
+`
+
+export const ContentWrap = styled.div`
+  display: ${({ isShowForm }) => isShowForm ? 'none' : 'block'};
+
+`
+export const CreateForm = styled.form`
   margin: 15px 0;
 `
 
@@ -45,10 +54,14 @@ export const FormBtn = styled(FormAction)`
   padding-top: 15px;
   border-top: 1px solid rgb(225, 228, 232);
 
-
+  ${({ id }) => !id && css`
+    button[name="cancel"],
+    button[name="close"] {
+      display: none;
+    }
+  `}
   button {
     &[type="submit"] {
-      opacity: ${props => props.title ? 1 : 0.5};
-    }
-  }
+      opacity: ${({ title }) => title ? 1 : 0.5
+      }
 `

@@ -8,7 +8,7 @@ export const deleteMilestone = id => ({type: DELETE_MILESTONE, payload: {id}})
 
 export const initialState = {
   milestoneData: [],
-  editMode: false,
+  editMode: false
 }
 
 export const reducer = (state, {type, payload}) => {

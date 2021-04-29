@@ -1,11 +1,11 @@
-import {LabelCreateFormWrap,} from './LabelCreateForm.style'
+import { LabelCreateFormWrap, } from './LabelCreateForm.style'
 import LabelForm from '../LabelForm/LabelForm'
 
-const LabelCreateForm = ({isShowForm = false, toggleForm }) => {
+const LabelCreateForm = ({isShowForm = false, toggleForm, updateData}) => {
 
   return (
     <LabelCreateFormWrap  isShowForm={isShowForm}>
-      <LabelForm onClose={toggleForm}/>
+      <LabelForm onClose={toggleForm} updateData={updateData}/>
     </LabelCreateFormWrap>
   )
 }

@@ -1,16 +1,28 @@
-import React, {useState} from 'react'
-import {CreateFormHeader, CreateFormWrap, FormBtn, FormLabel} from "./CreateForm.style";
-import {MilestonesAPI} from "../../../utils/api";
+import React, { useContext, useState } from 'react'
+import { MilestonesAPI } from '../../../utils/api'
+import {
+  CreateForm,
+  CreateFormHeader,
+  FormBtn,
+  FormLabel
+} from './MilestoneCreateForm.style'
+import { MilestonesContext } from '../Milestones'
 
-
-const CreateForm = () => {
+const MilestoneCreateForm = ({
+  id = null,
+  title = '',
+  date = '',
+  desc ='',
+  status ='open'
+}) => {
   const [milestoneData, setMilestoneData] = useState({
-    title: '',
-    date: '',
-    desc: '',
-    status: 'open'
+    title,
+    date,
+    desc,
+    status
   })
 
+  const {toggleForm} = useContext(MilestonesContext)
   const handleChangeMilestoneData = ({target: {name, value}}) => {
     setMilestoneData(() => ({...milestoneData, [name]: value}))
   }
@@ -26,6 +38,7 @@ const CreateForm = () => {
           desc: '',
           status: 'open'
         }))
+        toggleForm()
       }
     } catch (err) {
       console.error(err)
@@ -33,11 +46,11 @@ const CreateForm = () => {
   }
   return (
     <>
-      <CreateFormHeader>
+      <CreateFormHeader id={id}>
         <h3>New milestone</h3>
         <span>Create a new milestone to help organize your issues and pull requests. Learn more about milestones and issues.</span>
       </CreateFormHeader>
-      <CreateFormWrap onSubmit={handleSubmit}>
+      <CreateForm onSubmit={handleSubmit}>
         <FormLabel>
           <label htmlFor="title">Title</label>
           <input
@@ -71,14 +84,14 @@ const CreateForm = () => {
             onChange={handleChangeMilestoneData}
           />
         </FormLabel>
-        <FormBtn>
+        <FormBtn id={id}  title={milestoneData.title}>
           <button name="cancel">Cancel</button>
           <button name="close">Close milestone</button>
           <button type="submit">Create milestone</button>
         </FormBtn>
-      </CreateFormWrap>
+      </CreateForm>
     </>
   )
 }
 
-export default CreateForm
+export default MilestoneCreateForm

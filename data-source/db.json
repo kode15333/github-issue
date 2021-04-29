@@ -19,40 +19,16 @@
       "id": 6
     },
     {
-      "labelName": "sdfsdfsdf",
-      "desc": "sdfsdfsdf",
-      "color": "#DB498C",
+      "labelName": "11",
+      "desc": "22",
+      "color": "#35946F",
       "id": 7
     },
     {
-      "labelName": "3333333",
-      "desc": "",
-      "color": "#35946F",
+      "labelName": "3333",
+      "desc": "2222",
+      "color": "#B9DC98",
       "id": 8
-    },
-    {
-      "labelName": "232",
-      "desc": "32323",
-      "color": "#1DF029",
-      "id": 10
-    },
-    {
-      "labelName": "2222",
-      "desc": "33333",
-      "color": "#662744",
-      "id": 11
-    },
-    {
-      "labelName": "2222",
-      "desc": "1121221",
-      "color": "#7DE446",
-      "id": 12
-    },
-    {
-      "labelName": "11111111111111",
-      "desc": "111111111111111111111111111",
-      "color": "#E15097",
-      "id": 15
     }
   ],
   "milestones": [
@@ -187,6 +163,13 @@
       "date": "",
       "desc": "3333333",
       "id": 22
+    },
+    {
+      "title": "1212",
+      "date": "",
+      "desc": "",
+      "status": "open",
+      "id": 23
     }
   ]
 }

@@ -1,9 +1,17 @@
-import React, {useState} from 'react'
-import {DeleteBtn, Field, FormAction, InputField, LabelFormWrap, LabelNameWrap, RanDomBtn} from './LabelForm.style'
-import {LabelName} from '../LabelTable/Body/LabelRow.style'
-import {makeRandomColor} from '../../../utils/util'
-import {LabelAPI} from '../../../utils/api'
-import {BTN_LABEL, FORM_LABEL} from '../../../utils/constant'
+import React, { useState } from 'react'
+import {
+  DeleteBtn,
+  Field,
+  FormAction,
+  InputField,
+  LabelFormWrap,
+  LabelNameWrap,
+  RanDomBtn
+} from './LabelForm.style'
+import { LabelName } from '../LabelTable/Body/LabelRow.style'
+import { makeRandomColor } from '../../../utils/util'
+import { LabelAPI } from '../../../utils/api'
+import { BTN_LABEL, FORM_LABEL } from '../../../utils/constant'
 
 const LabelForm = ({
   id = null,
@@ -11,7 +19,7 @@ const LabelForm = ({
   desc = '',
   color = '#35946F',
   onClose,
-  updateData = null
+  updateData
 }) => {
   const [labelData, setLabelData] = useState({
     id,

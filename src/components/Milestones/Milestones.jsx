@@ -1,18 +1,29 @@
-import React, {useReducer} from 'react'
-import CreateForm from './CreateForm/CreateForm'
-import {Header, MilesStoneWrap, MileStone, MileStoneInfo} from "./Milestones.style";
-import {initialState, reducer} from "./reducer";
-
+import React, { useReducer } from 'react'
+import {
+  Header,
+  MilesStoneWrap,
+  MileStone,
+  MileStoneInfo
+} from './Milestones.style'
+import { initialState, reducer } from './reducer'
+import MilestoneCreateForm from './MilestoneCreateForm/MilestoneCreateForm'
+import {
+  ContentWrap,
+  CreateFormWrap
+} from './MilestoneCreateForm/MilestoneCreateForm.style'
 
 export const MilestonesContext = React.createContext();
-const Milestones = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
 
+const Milestones = ({isShowForm = false, toggleForm}) => {
+  const [state, dispatch] = useReducer(reducer, {...initialState, isShowForm});
 
   return (
-    <MilestonesContext.Provider value={{state, dispatch}}>
+    <MilestonesContext.Provider value={{state, dispatch, toggleForm}}>
       <MilesStoneWrap>
-        <CreateForm/>
+        <CreateFormWrap isShowForm={isShowForm}>
+          <MilestoneCreateForm />
+        </CreateFormWrap>
+        <ContentWrap  isShowForm={isShowForm}>
         <div>
           <Header>
             <div>1 Open</div>
@@ -41,6 +52,7 @@ const Milestones = () => {
             </MileStone>
           </ul>
         </div>
+        </ContentWrap>
       </MilesStoneWrap>
     </MilestonesContext.Provider>
   )

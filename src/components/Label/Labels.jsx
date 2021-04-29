@@ -3,7 +3,7 @@ import LabelCreateForm from './LabelCreateForm/LabelCreateForm'
 import LabelTable from './LabelTable/LabelTable'
 import useLabelsStatus from '../Contents/useLabelsStatus'
 
-const Label = ({ isShowForm, toggleForm  }) => {
+const Labels = ({ isShowForm, toggleForm  }) => {
   const [labels, getLabelsData] = useLabelsStatus()
 
   return (
@@ -14,4 +14,4 @@ const Label = ({ isShowForm, toggleForm  }) => {
   )
 }
 
-export default Label
+export default Labels

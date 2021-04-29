@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { MainWrap } from '../../App.style'
 import Milestones from '../Milestones/Milestones'
-import Labels from '../Label/Label'
+import Labels from '../Label/Labels'
 import Nav from '../Nav/Nav'
 
 const Content = () => {

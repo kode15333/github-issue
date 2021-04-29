@@ -3,16 +3,20 @@ import { MilestonesAPI } from '../../../utils/api'
 const ADD_MILESTONE = 'milestone/ADD_MILESTONE';
 const UPDATE_MILESTONE = 'milestone/UPDATE_MILESTONE';
 const DELETE_MILESTONE = 'milestone/DELETE_MILESTONE'
+const CHANGE_NAV = 'milestone/CHANGE_NAV'
 
 export const addMilestone = milestoneData => ({type: ADD_MILESTONE, payload: milestoneData});
 export const updateMilestone = milestoneData => ({type: UPDATE_MILESTONE, payload: milestoneData});
 export const removeMilestone = id => ({type: DELETE_MILESTONE, payload: {id}})
+export const changeNav = (nav) => ({type: CHANGE_NAV, payload: {nav}})
+
 
 export const getMilestones = async (dispatch) => {
   const response = MilestonesAPI.getMilestones();
   const milestoneData = await response;
   dispatch(addMilestone(milestoneData))
 }
+
 export const deleteMilestone = (dispatch) => async (id) => {
   try {
     const response = await MilestonesAPI.deleteMilestone({id});
@@ -52,13 +56,13 @@ export const postMilestone = (dispatch) => async (milestoneData) => {
 }
 export const initialState = {
   milestoneData: [],
-  editMode: false
+  nav: 'open'
 }
 
 export const reducer = (state, {type, payload}) => {
   switch (type) {
     case ADD_MILESTONE:
-      return {...state, milestoneData: [...(state.milestoneData), ...payload], editMode: !state.editMode};
+      return {...state, milestoneData: [...(state.milestoneData), ...payload]};
     case UPDATE_MILESTONE:
       const newData = state.milestoneData.map(milestone => {
         if (milestone.id === payload.id) {
@@ -66,12 +70,12 @@ export const reducer = (state, {type, payload}) => {
         }
         return milestone
       })
-      return {...state, milestoneData: newData, editMode: !state.editMode}
+      return {...state, milestoneData: newData}
     case DELETE_MILESTONE:
-      console.log(payload)
       state.milestoneData = state.milestoneData.filter(({id}) => id !== payload.id);
-      console.log('state', state)
-      return {...state, editMode: !state.editMode};
+      return {...state};
+    case CHANGE_NAV:
+      return {...state, nav: payload.nav}
     default :
       console.log('invalid action')
   }

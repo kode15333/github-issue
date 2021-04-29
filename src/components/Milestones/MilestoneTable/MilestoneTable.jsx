@@ -8,7 +8,10 @@ import MilestoneForm from '../MilestoneForm/MilestoneForm'
 import { deleteMilestone, putMilestone } from '../reducer'
 
 const MilestoneTable = ({ isShowForm }) => {
-  const { state: { milestoneData }, dispatch } = useContext(MilestonesContext)
+  const {
+    state: { milestoneData, nav },
+    dispatch
+  } = useContext(MilestonesContext)
   const [updateMode, setUpdateMode] = useState({
     show: false,
     milestone: null,
@@ -38,10 +41,17 @@ const MilestoneTable = ({ isShowForm }) => {
     date,
     desc,
     status
-  }) => <MilestoneRow key={id} {...{ id, title, date, desc, status }}
+  }) => {
+    if (status === nav) {
+      return (
+        <MilestoneRow key={id} {...{ id, title, date, desc, status }}
                       openUpdateForm={openUpdateForm}
                       onUpdate={putMilestone(dispatch)}
-                      onDelete={deleteMilestone(dispatch)}/>)
+                      onDelete={deleteMilestone(dispatch)}/>
+      )
+    }
+
+  })
   return (
     <ContentWrap isShowForm={isShowForm}>
       <TableWrap updateMode={updateMode.show}>

@@ -33,17 +33,17 @@
   ],
   "milestones": [
     {
-      "title": "66666666666",
+      "title": "555555555555",
       "date": "2021-04-15",
-      "desc": "3333333333333",
-      "status": "open",
+      "desc": "555555555555555555",
+      "status": "close",
       "id": 27
     },
     {
       "title": "999999999999",
       "date": "",
       "desc": "9999999999999999999999",
-      "status": "open",
+      "status": "close",
       "id": 28
     },
     {
@@ -87,6 +87,13 @@
       "desc": "newemwewewe",
       "status": "open",
       "id": 34
+    },
+    {
+      "title": "777777777777777",
+      "date": "",
+      "desc": "77777777777777",
+      "status": "open",
+      "id": 35
     }
   ]
 }

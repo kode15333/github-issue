@@ -1,4 +1,7 @@
-export const SERVER_URL = 'http://localhost:3001/issues/';
+export const SERVER_URL = {
+  ISSUES : 'http://localhost:3001/issues/',
+  MILESTONES : 'http://localhost:3001/milestones/'
+};
 
 export const FORM_LABEL = {
   NAME: 'Label Name',

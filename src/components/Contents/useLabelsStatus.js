@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {getLabels} from "../../utils/api";
+import {LabelAPI} from "../../utils/api";
 import {compareObject} from "../../utils/util";
 
 const useLabelsStatus = () => {
@@ -7,7 +7,7 @@ const useLabelsStatus = () => {
 
   const getLabelsData = async () => {
     try {
-      const labelsData = await getLabels()
+      const labelsData = await LabelAPI.getLabels()
       if (compareObject(labelsData, labels)) return
       setLabels(() => [...labelsData])
     } catch (err) {

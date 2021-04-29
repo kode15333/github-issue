@@ -1,16 +1,11 @@
-import {
-  BoxRow,
-  LabelName,
-  LabelUpdateFormWrap,
-  RowInfo
-} from './LabelRow.style'
-import { ALERT_MESSAGE, BTN_LABEL } from '../../../../utils/constant'
+import {BoxRow, LabelName, LabelUpdateFormWrap, RowInfo} from './LabelRow.style'
+import {ALERT_MESSAGE, BTN_LABEL} from '../../../../utils/constant'
 import LabelForm from '../../LabelForm/LabelForm'
-import { useState } from 'react'
-import { deleteLabel } from '../../../../utils/api'
+import {useState} from 'react'
+import {LabelAPI} from '../../../../utils/api'
 
-const LabelRow = ({ label, updateData }) => {
-  const { id = null, labelName = '', desc = '', color = '#e99695' } = label
+const LabelRow = ({label, updateData}) => {
+  const {id = null, labelName = '', desc = '', color = '#e99695'} = label
   const [isShowUpdateForm, setIsShowUpdateForm] = useState(false)
 
   const handleCloseBtn = () => {
@@ -21,7 +16,7 @@ const LabelRow = ({ label, updateData }) => {
     const result = window.confirm(ALERT_MESSAGE.DELETE)
     if (result === false) return
     try {
-      const response = await deleteLabel({ id })
+      const response = await LabelAPI.deleteLabel({id})
       if (response.ok) {
         updateData()
       }

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Field, FormAction } from '../../Label/LabelForm/LabelForm.style'
+import {Field, FormAction} from '../../Label/LabelForm/LabelForm.style'
 import styled from 'styled-components'
 
 const CreateFormHeader = styled.div`
@@ -76,9 +76,8 @@ const CreateForm = () => {
           <textarea id="title" name="title" cols="20" rows="13" maxLength="8192"/>
         </FormLabel>
         <FormBtn>
-          <button>Cancel</button>
-          <button>Close milestone</button>
-
+          <button name="cancel">Cancel</button>
+          <button name="close">Close milestone</button>
           <button type="submit">Create milestone</button>
         </FormBtn>
       </CreateFormWrap>

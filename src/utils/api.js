@@ -1,5 +1,4 @@
-import {SERVER_URL} from './constant'
-
+import { SERVER_URL } from './constant'
 
 export const LabelAPI = {
   getLabels: async () => {
@@ -30,6 +29,17 @@ export const LabelAPI = {
 }
 
 export const MilestonesAPI = {
+  getMilestones: async () => {
+    try {
+      const response = await fetch(SERVER_URL.MILESTONES)
+      if (response.ok === false) {
+        throw response.status;
+      }
+      return response.json()
+    } catch (err) {
+      console.error('getLabels Error', err)
+    }
+  },
   deleteMilestone: ({id}) => {
     return deleteData(`${SERVER_URL.MILESTONES + id}`)
   },

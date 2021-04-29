@@ -11,8 +11,10 @@ const Content = () => {
 
   const onClickNav = (title) => {
     setNavTitle(() => title)
+    setIsShowForm(() => false)
   }
-  const onToggleNewContent = async () => {
+
+  const onToggleNewContent = () => {
     setIsShowForm(() => !isShowForm)
   }
 

@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const MilesStoneWrap = styled.div`
   width: 100%;
@@ -10,23 +10,14 @@ export const MilesStoneWrap = styled.div`
   }
 `
 
-export const Header = styled.div`
-  display: flex;
-  align-items: center;
-  padding-left: 15px;
-  background-color: #f6f8fa;
-  height: 49px;
-  border: 1px solid rgb(225, 228, 232);
-  div {
-    margin: 0 5px;
-  }
-`
-
-export const MileStone = styled.div`
+export const MileStone = styled.li`
+  width: 100%;
+  height: 90px;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   padding: 5px 15px;
+  box-sizing: border-box;
   border: 1px solid rgb(225, 228, 232);
 
 

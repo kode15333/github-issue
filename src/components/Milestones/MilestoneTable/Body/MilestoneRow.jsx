@@ -1,8 +1,29 @@
 import React from 'react'
-import { MileStone, MileStoneInfo } from './MilestoneRow.style'
+import { MileStone, MilestoneAction, MileStoneInfo } from './MilestoneRow.style'
 
-const MilestoneRow = ({id, title, date, desc}) => {
-  const dateContent = date.length ? date : 'No due date';
+const MilestoneRow = ({
+  id,
+  title,
+  date,
+  desc,
+  status,
+  openUpdateForm,
+  onUpdate,
+  onDelete
+}) => {
+
+  const handleClickEdit = () => {
+    openUpdateForm(id)
+  }
+
+  const handleCLClickClose = () => {
+    onUpdate({ id, title, date, desc, status: 'close' })
+  }
+
+  const handleClickDelete = () => {
+    onDelete(id)
+  }
+  const dateContent = date.length ? date : 'No due date'
   return (
     <MileStone>
       <MileStoneInfo>
@@ -17,11 +38,11 @@ const MilestoneRow = ({id, title, date, desc}) => {
           <span>0 open</span>
           <span>0 closed</span>
         </div>
-        <div>
-          <button>Edit</button>
-          <button>Close</button>
-          <button>Delete</button>
-        </div>
+        <MilestoneAction>
+          <button onClick={handleClickEdit}>Edit</button>
+          <button onClick={handleCLClickClose}>Close</button>
+          <button onClick={handleClickDelete}>Delete</button>
+        </MilestoneAction>
       </MileStoneInfo>
     </MileStone>
   )

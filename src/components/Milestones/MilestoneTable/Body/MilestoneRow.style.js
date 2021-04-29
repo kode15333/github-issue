@@ -25,3 +25,16 @@ export const MileStoneInfo = styled.div`
     margin: 2px;
   }
 `
+
+export const MilestoneAction = styled.div`
+  margin-top: 2px;
+  button {
+    background-color: inherit;
+    color: #0000ff;
+  }
+
+  button:last-child {
+    color: #ff0000;
+  }
+
+`

@@ -1,6 +1,6 @@
 import React, { useEffect, useReducer } from 'react'
 import { MilesStoneWrap, } from './Milestones.style'
-import { getMilestones, initialState, reducer } from './reducer'
+import { getMilestones, initialState, postMilesStone, reducer } from './reducer'
 import MilestoneCreateForm from './MilestoneCreateForm/MilestoneCreateForm'
 import {
   ContentWrap,
@@ -22,13 +22,11 @@ const Milestones = ({isShowForm = false, toggleForm}) => {
   return (
     <MilestonesContext.Provider value={{state, dispatch, toggleForm}}>
       <MilesStoneWrap>
-        <CreateFormWrap isShowForm={isShowForm}>
-          <MilestoneCreateForm />
+        <CreateFormWrap isShowForm={isShowForm} >
+          <MilestoneCreateForm onCreate={postMilesStone(dispatch)}/>
         </CreateFormWrap>
         <ContentWrap  isShowForm={isShowForm}>
-        <div>
-          <MilestoneTable/>
-        </div>
+        <MilestoneTable/>
         </ContentWrap>
       </MilesStoneWrap>
     </MilestonesContext.Provider>

@@ -7,10 +7,24 @@ const DELETE_MILESTONE = 'milestone/DELETE_MILESTONE'
 export const addMilestone = milestoneData => ({type: ADD_MILESTONE, payload: milestoneData});
 export const updateMilestone = milestoneData => ({type: UPDATE_MILESTONE, payload: milestoneData});
 export const deleteMilestone = id => ({type: DELETE_MILESTONE, payload: {id}})
+
 export const getMilestones = async (dispatch) => {
   const response = MilestonesAPI.getMilestones();
   const milestoneData = await response;
   dispatch(addMilestone(milestoneData))
+}
+
+export const postMilesStone = (dispatch) => async (milestoneData) => {
+  try {
+    const response = await MilestonesAPI.postMilestone(milestoneData);
+    if (response.ok === false) {
+      throw response.status
+    }
+    const data = await response.json();
+    dispatch(addMilestone([data]))
+  } catch (err) {
+    console.error('addMilesStone Error', err)
+  }
 }
 export const initialState = {
   milestoneData: [],

@@ -1,5 +1,5 @@
 import React from 'react'
-import { MileStone, MileStoneInfo } from '../../Milestones.style'
+import { MileStone, MileStoneInfo } from './MilestoneRow.style'
 
 const MilestoneRow = ({id, title, date, desc}) => {
   const dateContent = date.length ? date : 'No due date';

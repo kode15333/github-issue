@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react'
-import { MilestonesAPI } from '../../../utils/api'
 import {
   CreateForm,
   CreateFormHeader,
@@ -13,7 +12,8 @@ const MilestoneCreateForm = ({
   title = '',
   date = '',
   desc ='',
-  status ='open'
+  status ='open',
+  onCreate = null
 }) => {
   const [milestoneData, setMilestoneData] = useState({
     title,
@@ -27,22 +27,21 @@ const MilestoneCreateForm = ({
     setMilestoneData(() => ({...milestoneData, [name]: value}))
   }
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const response = await MilestonesAPI.postMilestone(milestoneData)
-      if (response.ok) {
-        setMilestoneData(() => ({
-          title: '',
-          date: '',
-          desc: '',
-          status: 'open'
-        }))
-        toggleForm()
-      }
-    } catch (err) {
-      console.error(err)
+    if (id) {
+
+    } else {
+      onCreate(milestoneData)
     }
+    setMilestoneData(() => ({
+      title: '',
+      date: '',
+      desc: '',
+      status: 'open'
+    }))
+    toggleForm()
   }
   return (
     <>

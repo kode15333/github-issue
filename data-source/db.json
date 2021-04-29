@@ -31,12 +31,6 @@
       "id": 8
     },
     {
-      "labelName": "12212",
-      "desc": "",
-      "color": "#23090B",
-      "id": 9
-    },
-    {
       "labelName": "232",
       "desc": "32323",
       "color": "#1DF029",
@@ -61,5 +55,18 @@
       "id": 15
     }
   ],
-  "milestone": []
+  "milestones": [
+    {
+      "id": 1,
+      "title": "title입니다",
+      "dsec": "내용입니다",
+      "status": "open"
+    },
+    {
+      "title": "111",
+      "date": "",
+      "desc": "123123",
+      "id": 2
+    }
+  ]
 }

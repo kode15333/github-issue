@@ -30,14 +30,6 @@ export const LabelAPI = {
 }
 
 export const MilestonesAPI = {
-  getMilestones: async () => {
-    try {
-      const response = await fetch(SERVER_URL.MILESTONES)
-      return response.json()
-    } catch (err) {
-      console.error('getMilestones Error', err)
-    }
-  },
   deleteMilestone: ({id}) => {
     return deleteData(`${SERVER_URL.MILESTONES + id}`)
   },

@@ -33,20 +33,20 @@ export const MilestonesAPI = {
   deleteMilestone: ({id}) => {
     return deleteData(`${SERVER_URL.MILESTONES + id}`)
   },
-  putMilestone:  ({id, title, date, desc, state}) => {
+  putMilestone:  ({id, title, date, desc, status}) => {
     return putData(`${SERVER_URL.MILESTONES + id}`, {
       title,
       date,
       desc,
-      state
+      status
     })
   },
-  postMilestone: ({title, date, desc, state}) => {
+  postMilestone: ({title, date, desc, status}) => {
     return postData(SERVER_URL.MILESTONES, {
       title,
       date,
       desc,
-      state
+      status
     })
   }
 }

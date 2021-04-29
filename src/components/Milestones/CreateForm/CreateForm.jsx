@@ -1,6 +1,5 @@
-import React, {useContext, useState} from 'react'
+import React, {useState} from 'react'
 import {CreateFormHeader, CreateFormWrap, FormBtn, FormLabel} from "./CreateForm.style";
-import {MilestonesContext} from "../Milestones";
 import {MilestonesAPI} from "../../../utils/api";
 
 
@@ -12,8 +11,6 @@ const CreateForm = () => {
     status: 'open'
   })
 
-  const {state } = useContext(MilestonesContext);
-  console.log(state)
   const handleChangeMilestoneData = ({target: {name, value}}) => {
     setMilestoneData(() => ({...milestoneData, [name]: value}))
   }

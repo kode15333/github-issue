@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { CreateFormWrap } from './MilestoneCreateForm.style'
 import MilestoneForm from '../MilestoneForm/MilestoneForm'
-import { MilestonesContext } from '../Milestones'
-import { postMilestone } from '../reducer'
+import { postMilestone } from '@store/milestone'
+import { MilestonesContext } from '@contexts/MilestoneProviderWrapper'
 
 const MileStoneCreateForm = ({isShowForm}) => {
   const { dispatch } = useContext(MilestonesContext)

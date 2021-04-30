@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
-import { MilestonesContext } from '../../Milestones'
 import { Header } from './TableHeader.style'
-import { changeNav } from '../../reducer'
+import { changeNav } from '@store/milestone'
+import { MilestonesContext } from '@contexts/MilestoneProviderWrapper'
 
 const getCounts = (acc, {status}) => {
   if (status === 'open') {

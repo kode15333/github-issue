@@ -1,6 +1,6 @@
-import {useEffect, useState} from 'react';
-import {LabelAPI} from "../../utils/api";
-import {compareObject} from "../../utils/util";
+import { useEffect, useState } from 'react'
+import { LabelAPI } from '@utils/api'
+import { compareObject } from '@utils/util'
 
 const useLabelsStatus = () => {
   const [labels, setLabels] = useState([])

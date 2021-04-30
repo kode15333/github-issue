@@ -36,3 +36,9 @@ export const NAV_TITLE = {
 export const ALERT_MESSAGE = {
   DELETE : '정말 이 레이블을 삭제하시겠습니까?'
 }
+
+export const NEW_BTN_LABEL = {
+  'label': BTN_LABEL.NEW_LABEL,
+  'milestone': BTN_LABEL.NEW_MILESTONE
+}
+

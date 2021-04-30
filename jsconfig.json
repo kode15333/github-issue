@@ -4,7 +4,10 @@
     "paths": {
       "@root": ["./"],
       "@utils": ["./utils/"],
-      "@components": ["./components/"]
+      "@store": ["./store/modules/"],
+      "@hooks": ["./hooks/"],
+      "@contexts": ["./contexts/"]
+
     }
   }
 }

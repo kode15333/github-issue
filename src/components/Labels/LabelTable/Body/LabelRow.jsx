@@ -9,8 +9,8 @@ import LabelForm from '../../LabelForm/LabelForm'
 import { useState } from 'react'
 import { LabelAPI } from '@utils/api'
 
-const LabelRow = ({label, updateData}) => {
-  const {id = null, labelName = '', desc = '', color = '#e99695'} = label
+const LabelRow = ({ label, updateData }) => {
+  const { id = null, labelName = '', desc = '', color = '#e99695' } = label
   const [isShowUpdateForm, setIsShowUpdateForm] = useState(false)
 
   const handleCloseBtn = () => {
@@ -21,10 +21,12 @@ const LabelRow = ({label, updateData}) => {
     const result = window.confirm(ALERT_MESSAGE.DELETE)
     if (result === false) return
     try {
-      const response = await LabelAPI.deleteLabel({id})
-      if (response.ok) {
-        updateData()
+      const response = await LabelAPI.deleteLabel({ id })
+      if (response.ok === false) {
+        throw response.status
       }
+      updateData()
+
     } catch (err) {
       console.error('handleDeleteBtn Error', err)
     }
@@ -46,7 +48,7 @@ const LabelRow = ({label, updateData}) => {
         </div>
       </RowInfo>
       <LabelUpdateFormWrap isShowForm={isShowUpdateForm}>
-        <LabelForm {...{id, labelName, desc, color}}
+        <LabelForm {...{ id, labelName, desc, color }}
                    onClose={handleCloseBtn} updateData={updateData}
                    onDelete={handleDeleteBtn}/>
       </LabelUpdateFormWrap>

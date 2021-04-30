@@ -1,4 +1,3 @@
-import React from 'react'
 import { MileStone, MilestoneAction, MileStoneInfo } from './MilestoneRow.style'
 import { BTN_LABEL } from '@utils/constant'
 

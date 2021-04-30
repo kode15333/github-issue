@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { Field, FormAction } from '../../Label/LabelForm/LabelForm.style'
+import { Field, FormAction } from '../../Labels/LabelForm/LabelForm.style'
 
 export const CreateFormHeader = styled.div`
   display: ${({ id }) => id ? 'none' : 'display'};

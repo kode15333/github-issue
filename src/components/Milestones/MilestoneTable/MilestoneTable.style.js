@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { BoxBody } from '../../Label/LabelTable/LabelTable.style'
+import { BoxBody } from '../../Labels/LabelTable/LabelTable.style'
 
 export const TableBody = styled(BoxBody)`
   width: 100%;

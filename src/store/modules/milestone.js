@@ -1,4 +1,4 @@
-import { MilestonesAPI } from '../../../utils/api'
+import { MilestonesAPI } from '../../utils/api'
 
 const ADD_MILESTONE = 'milestone/ADD_MILESTONE';
 const UPDATE_MILESTONE = 'milestone/UPDATE_MILESTONE';

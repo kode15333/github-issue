@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { MainWrap } from '../../App.style'
 import Milestones from '../Milestones/Milestones'
-import Labels from '../Label/Labels'
+import Labels from '../Labels/Labels'
 import Nav from '../Nav/Nav'
 
 const Content = () => {
@@ -25,7 +25,7 @@ const Content = () => {
 
   return (
     <MainWrap>
-      <Nav openCreateForm={onToggleNewContent} onClick={onClickNav} navTitle={navTitle}/>
+      <Nav openCreateForm={onToggleNewContent} onClickNav={onClickNav} navTitle={navTitle}/>
       {Content[navTitle]}
     </MainWrap>
   );

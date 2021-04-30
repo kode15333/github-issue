@@ -5,10 +5,10 @@ import {
   FormBtn,
   FormLabel
 } from './MilestoneForm.style'
-import { MilestonesContext } from '../Milestones'
 import { BTN_LABEL } from '@utils/constant'
+import { MilestonesContext } from '@contexts/MilestoneProviderWrapper'
 
-const MilestoneForm = ( {
+const MilestoneForm = ({
   id = null,
   title = '',
   date = '',
@@ -16,14 +16,15 @@ const MilestoneForm = ( {
   status = 'open',
   onCreate = null,
   onUpdate = null,
-  onClose= null }) => {
+  onClose = null
+}) => {
   const [milestoneData, setMilestoneData] = useState({
-      id,
-      title,
-      date,
-      desc,
-      status
-    })
+    id,
+    title,
+    date,
+    desc,
+    status
+  })
   const { toggleForm } = useContext(MilestonesContext)
   const handleChangeMilestoneData = ({ target: { name, value } }) => {
     setMilestoneData(() => ({ ...milestoneData, [name]: value }))
@@ -34,7 +35,7 @@ const MilestoneForm = ( {
   }
 
   const handleClose = () => {
-    onUpdate({...milestoneData, status : 'close'})
+    onUpdate({ ...milestoneData, status: 'close' })
     onClose && onClose()
   }
 
@@ -43,16 +44,17 @@ const MilestoneForm = ( {
     if (id) {
       onUpdate(milestoneData)
       onClose()
-    } else {
-      onCreate(milestoneData)
-      setMilestoneData(() => ({
-        title: '',
-        date: '',
-        desc: '',
-        status: 'open'
-      }))
-      toggleForm()
+      return false;
     }
+
+    onCreate(milestoneData)
+    setMilestoneData(() => ({
+      title: '',
+      date: '',
+      desc: '',
+      status: 'open'
+    }))
+    toggleForm()
 
   }
   return (
@@ -98,7 +100,7 @@ const MilestoneForm = ( {
         <FormBtn id={id} title={milestoneData.title}>
           <button name="cancel" onClick={handleCancel}>{BTN_LABEL.CANCEL}</button>
           <button name="close" onClick={handleClose}>{BTN_LABEL.CLOSE_MILESTONE}</button>
-          <button type="submit">{id ?  BTN_LABEL.SAVE_MILESTONE: BTN_LABEL.CREATE_MILESTONE} </button>
+          <button type="submit">{id ? BTN_LABEL.SAVE_MILESTONE : BTN_LABEL.CREATE_MILESTONE} </button>
         </FormBtn>
       </CreateForm>
     </>

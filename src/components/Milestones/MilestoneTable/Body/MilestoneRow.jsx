@@ -32,7 +32,7 @@ const MilestoneRow = ({
         <span>{desc}</span>
       </MileStoneInfo>
       <MileStoneInfo>
-        <span>진행률</span>
+        <span>진행률 <progress max="100" value="70">70% </progress></span>
         <div>
           <span>100% Complete</span>
           <span>0 open</span>
